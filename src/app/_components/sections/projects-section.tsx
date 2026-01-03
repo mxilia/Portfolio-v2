@@ -126,8 +126,9 @@ export const ProjectsSection = ({ className }: ProjectsSectionProps) => {
           ]}
         >
           <p className="whitespace-pre-line text-sm text-neutral-400 mb-1">
-            A full-stack forum application where users can create, read, like,
-            and delete posts, with built-in moderation tools and an admin
+            A full-stack forum application enabling users to create, read, like,
+            and delete posts, customize their profiles, and view randomized
+            feeds, with built-in moderation tools and a comprehensive admin
             dashboard.
           </p>
           <div className="inline-flex w-full justify-between">
