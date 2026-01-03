@@ -120,7 +120,6 @@ export const ProjectsSection = ({ className }: ProjectsSectionProps) => {
             "Redis",
             "PostgreSQL",
             "AWS",
-
             "GitHub Actions",
             "Docker",
           ]}

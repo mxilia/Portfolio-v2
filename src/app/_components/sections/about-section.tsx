@@ -15,7 +15,7 @@ export const ProfileSection = ({ className }: ProfileSectionProps) => {
       )}
       id="about"
     >
-      <div className="inline-flex items-center w-full gap-4 p-3 bg-linear-to-br to-violet-800/10 from-fuchsia-900/30">
+      <div className="inline-flex items-center rounded-t-lg w-full gap-4 p-3 bg-linear-to-br to-violet-800/10 from-fuchsia-900/30">
         <Image
           src="/temp.png"
           height={72}
