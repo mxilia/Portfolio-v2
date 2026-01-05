@@ -44,7 +44,7 @@ const SingleExperience = ({
             <div>{title}</div>
             <div className="text-sm text-neutral-500 mb-1">{subtitle}</div>
           </div>
-          <div className="text-[10px] [@media(min-width:400px)]:text-sm pt-1.5 text-neutral-300">
+          <div className="min-w-20 text-right text-sm [@media(min-width:391px)]:min-w-30 pt-1.5 text-neutral-300">
             {timeRange}
           </div>
         </div>

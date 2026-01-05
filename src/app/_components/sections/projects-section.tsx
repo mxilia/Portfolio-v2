@@ -63,7 +63,7 @@ type ProjectProps = {
 
 const Project = ({ name, assetsDir, children, tags }: ProjectProps) => {
   return (
-    <div className="p-3 rounded-lg border bg-linear-to-br to-violet-900/10 from-fuchsia-900/20 hover:border-fuchsia-600/70 border-fuchsia-700/30 hover:scale-[102%] transition-all duration-200">
+    <div className="p-3 [@media(max-width:510px)]:max-w-70 rounded-lg border bg-linear-to-br to-violet-900/10 from-fuchsia-900/20 hover:border-fuchsia-600/70 border-fuchsia-700/30 hover:scale-[102%] transition-all duration-200">
       {assetsDir ? (
         <Suspense fallback={<Skeleton className="w-full h-35" />}>
           <ProjectImg assetsDir={assetsDir} />
@@ -106,7 +106,7 @@ export const ProjectsSection = ({ className }: ProjectsSectionProps) => {
       >
         Projects
       </h1>
-      <div className="grid [@media(min-width:510px)]:grid-cols-2 grid-cols-1 gap-1 row-start-auto">
+      <div className="grid [@media(min-width:510px)]:grid-cols-2 justify-items-center grid-cols-1 gap-1 row-start-auto">
         <Project
           name="Quonet - Post Forum Website"
           assetsDir="/project/quonet"

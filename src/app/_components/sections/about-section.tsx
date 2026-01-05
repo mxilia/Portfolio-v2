@@ -17,10 +17,10 @@ export const ProfileSection = ({ className }: ProfileSectionProps) => {
     >
       <div className="inline-flex items-center rounded-t-lg w-full gap-4 p-3 bg-linear-to-br to-violet-800/10 from-fuchsia-900/30">
         <Image
-          src="/temp.png"
+          src="/profile_crop.jpg"
           height={72}
           width={72}
-          className="h-18 w-18 rounded-full border border-zinc-700"
+          className="h-18 w-18 rounded-full object-cover border border-zinc-700"
           alt="profile"
         />
         <div className="inline-flex flex-col gap-2">
@@ -36,7 +36,7 @@ export const ProfileSection = ({ className }: ProfileSectionProps) => {
               variant="outline"
               className="text-green-400 border-green-400"
             >
-              Available for work
+              Open to work
             </Badge>
           </div>
         </div>
