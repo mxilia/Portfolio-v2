@@ -61,7 +61,7 @@ type ExperienceSectionProps = {
 export const ExperienceSection = ({ className }: ExperienceSectionProps) => {
   return (
     <div className={cn("w-full h-fit scroll-mt-20", className)} id="work">
-      <Tabs defaultValue="education" className="w-full text-neutral-200">
+      <Tabs defaultValue="work" className="w-full text-neutral-200">
         <TabsList className="bg-fuchsia-800/30 inline-flex gap-1">
           <TabsTrigger
             value="work"
