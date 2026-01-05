@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const ResumeButton = () => {
   return (
-    <a href="/resume.pdf" download="ravint_resume.pdf">
+    <a href="/main_resume.pdf" download="ravint_resume.pdf">
       <button className="inline-flex mr-1 text-neutral-300 text-sm hover:bg-fuchsia-950/20 hover:border-fuchsia-600 transition-colors duration-300 font-medium items-center gap-1 px-2 p-1.5 border border-zinc-600 rounded-lg">
         <FileText className="w-5 h-5" />
         <div>Resume</div>
