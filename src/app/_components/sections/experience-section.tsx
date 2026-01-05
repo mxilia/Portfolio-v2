@@ -42,9 +42,9 @@ const SingleExperience = ({
         <div className="w-full flex justify-between">
           <div>
             <div>{title}</div>
-            <div className="text-sm text-neutral-500 mb-1">{subtitle}</div>
+            <div className="text-sm text-neutral-300 mb-1">{subtitle}</div>
           </div>
-          <div className="min-w-20 text-right text-sm [@media(min-width:391px)]:min-w-30 pt-1.5 text-neutral-300">
+          <div className="min-w-20 text-right text-sm [@media(min-width:391px)]:min-w-30 text-neutral-300">
             {timeRange}
           </div>
         </div>
@@ -60,20 +60,20 @@ type ExperienceSectionProps = {
 
 export const ExperienceSection = ({ className }: ExperienceSectionProps) => {
   return (
-    <div className={cn("w-full h-fit scroll-mt-20", className)} id="experience">
+    <div className={cn("w-full h-fit scroll-mt-20", className)} id="work">
       <Tabs defaultValue="education" className="w-full text-neutral-200">
-        <TabsList className="bg-fuchsia-800/30">
+        <TabsList className="bg-fuchsia-800/30 inline-flex gap-1">
+          <TabsTrigger
+            value="work"
+            className="hover:border-zinc-300/30 data-[state=active]:border-zinc-300/30 data-[state=active]:text-fuchsia-300 transition-all duration-200 text-fuchsia-800/40 data-[state=active]:bg-zinc-400/20"
+          >
+            Work
+          </TabsTrigger>
           <TabsTrigger
             value="education"
             className="hover:border-zinc-300/30 data-[state=active]:border-zinc-300/30 data-[state=active]:text-fuchsia-300 transition-all duration-200 text-fuchsia-800/40 data-[state=active]:bg-zinc-400/20"
           >
             Education
-          </TabsTrigger>
-          <TabsTrigger
-            value="work"
-            className="ml-1 hover:border-zinc-300/30 data-[state=active]:border-zinc-300/30 data-[state=active]:text-fuchsia-300 transition-all duration-200 text-fuchsia-800/40 data-[state=active]:bg-zinc-400/20"
-          >
-            Work
           </TabsTrigger>
         </TabsList>
 
@@ -105,9 +105,17 @@ export const ExperienceSection = ({ className }: ExperienceSectionProps) => {
           value="work"
           className="p-3 border rounded-xl border-fuchsia-800/30"
         >
-          <div className="w-full h-full inline-flex items-center justify-center text-sm text-neutral-400">
-            No work currently.
-          </div>
+          <SingleExperience
+            logoSrc="/logo/work/fecamp_logo.png"
+            title="FECamp 19"
+            subtitle="Junior Frontend Developer "
+            timeRange="Oct. 2025 - Present"
+          >
+            <p className="whitespace-pre-line text-sm text-neutral-400">
+              • Contributed to the development and helped maintain frontend
+              features using Next.js, Tailwind CSS and ShadCN.
+            </p>
+          </SingleExperience>
         </TabsContent>
       </Tabs>
     </div>
