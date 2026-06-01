@@ -28,7 +28,7 @@ const SingleExperience = ({
     <div
       className={cn(
         "inline-flex gap-2 w-full p-2 transition-colors duration-200 rounded-lg hover:bg-fuchsia-700/20",
-        className
+        className,
       )}
     >
       <Image
@@ -109,11 +109,12 @@ export const ExperienceSection = ({ className }: ExperienceSectionProps) => {
             logoSrc="/logo/work/fecamp_logo.png"
             title="FECamp 19"
             subtitle="Junior Frontend Developer "
-            timeRange="Oct. 2025 - Present"
+            timeRange="Oct 2025 - May 2026"
           >
             <p className="whitespace-pre-line text-sm text-neutral-400">
               • Contributed to the development and helped maintain frontend
-              features using Next.js, Tailwind CSS and ShadCN.
+              features using Next.js, Tailwind CSS and ShadCN. <br />• Learned
+              about collaboration and agile development process.
             </p>
           </SingleExperience>
         </TabsContent>
