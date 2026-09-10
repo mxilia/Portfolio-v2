@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/tabs/tabs";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { WORK } from "../../const/experience";
 
 type SingleExperience = {
   logoSrc: string;
@@ -27,7 +28,7 @@ const SingleExperience = ({
   return (
     <div
       className={cn(
-        "inline-flex gap-2 w-full p-2 transition-colors duration-200 rounded-lg hover:bg-fuchsia-700/20",
+        "inline-flex gap-3 w-full p-2 transition-colors duration-200 rounded-lg hover:bg-fuchsia-700/20",
         className,
       )}
     >
@@ -65,13 +66,13 @@ export const ExperienceSection = ({ className }: ExperienceSectionProps) => {
         <TabsList className="bg-fuchsia-800/30 inline-flex gap-1">
           <TabsTrigger
             value="work"
-            className="hover:border-zinc-300/30 data-[state=active]:border-zinc-300/30 data-[state=active]:text-fuchsia-300 transition-all duration-200 text-fuchsia-800/40 data-[state=active]:bg-zinc-400/20"
+            className="hover:border-fuchsia-300/30 data-[state=active]:border-fuchsia-500 data-[state=active]:text-fuchsia-500 transition-all duration-200 text-fuchsia-800/40 data-[state=active]:bg-fuchsia-400/10"
           >
             Work
           </TabsTrigger>
           <TabsTrigger
             value="education"
-            className="hover:border-zinc-300/30 data-[state=active]:border-zinc-300/30 data-[state=active]:text-fuchsia-300 transition-all duration-200 text-fuchsia-800/40 data-[state=active]:bg-zinc-400/20"
+            className="hover:border-fuchsia-300/30 data-[state=active]:border-fuchsia-500 data-[state=active]:text-fuchsia-500 transition-all duration-200 text-fuchsia-800/40 data-[state=active]:bg-fuchsia-400/10"
           >
             Education
           </TabsTrigger>
@@ -105,18 +106,20 @@ export const ExperienceSection = ({ className }: ExperienceSectionProps) => {
           value="work"
           className="p-3 border rounded-xl border-fuchsia-800/30"
         >
-          <SingleExperience
-            logoSrc="/logo/work/fecamp_logo.png"
-            title="FECamp 19"
-            subtitle="Junior Frontend Developer "
-            timeRange="Oct 2025 - May 2026"
-          >
-            <p className="whitespace-pre-line text-sm text-neutral-400">
-              • Contributed to the development and helped maintain frontend
-              features using Next.js, Tailwind CSS and ShadCN. <br />• Learned
-              about collaboration and agile development process.
-            </p>
-          </SingleExperience>
+          {WORK.map((work) => (
+            <SingleExperience
+              key={work.title}
+              logoSrc={work.logoSrc}
+              title={work.title}
+              subtitle={work.subtitle}
+              timeRange={work.timeRange}
+              className="mb-2"
+            >
+              <p className="whitespace-pre-line text-sm text-neutral-400">
+                {work.description}
+              </p>
+            </SingleExperience>
+          ))}
         </TabsContent>
       </Tabs>
     </div>

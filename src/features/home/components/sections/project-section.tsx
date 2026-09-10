@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge/badge";
-import fs from "fs";
 import path from "path";
 import { readImages } from "@/lib/read-images";
 import {
@@ -13,6 +12,7 @@ import {
 } from "@/components/ui/carousel/carousel";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton/skeleton";
+import { PROJECTS } from "../../const/project";
 
 type ProjectImgProps = {
   assetsDir: string;
@@ -21,7 +21,7 @@ type ProjectImgProps = {
 const ProjectImg = async ({ assetsDir }: ProjectImgProps) => {
   const images = await readImages(
     assetsDir,
-    path.join(process.cwd(), `public${assetsDir}`)
+    path.join(process.cwd(), `public${assetsDir}`),
   );
   return (
     <div>
@@ -57,11 +57,20 @@ const ProjectImg = async ({ assetsDir }: ProjectImgProps) => {
 type ProjectProps = {
   name: string;
   assetsDir?: string;
-  children?: React.ReactNode;
   tags?: string[];
+  description?: string;
+  visitUrl?: string;
+  githubUrl?: string;
 };
 
-const Project = ({ name, assetsDir, children, tags }: ProjectProps) => {
+const Project = ({
+  name,
+  assetsDir,
+  tags = [],
+  description = "",
+  visitUrl,
+  githubUrl,
+}: ProjectProps) => {
   return (
     <div className="p-3 [@media(max-width:510px)]:max-w-70 rounded-lg border bg-linear-to-br to-violet-900/10 from-fuchsia-900/20 hover:border-fuchsia-600/70 border-fuchsia-700/30 hover:scale-[102%] transition-all duration-200">
       {assetsDir ? (
@@ -69,7 +78,7 @@ const Project = ({ name, assetsDir, children, tags }: ProjectProps) => {
           <ProjectImg assetsDir={assetsDir} />
         </Suspense>
       ) : (
-        <div className="w-full h-35 inline-flex items-center justify-center text-sm mb-2 text-neutral-500 bg-neutral-900/50 rounded-xl">
+        <div className="w-full h-35 inline-flex items-center justify-center text-sm text-neutral-500 bg-neutral-900/50 rounded-xl">
           {" "}
           no img
         </div>
@@ -77,7 +86,25 @@ const Project = ({ name, assetsDir, children, tags }: ProjectProps) => {
       <div className="text-neutral-300 border-b mt-1 mb-1 border-fuchsia-600/40">
         {name}
       </div>
-      {children}
+      <p className="whitespace-pre-line text-sm text-neutral-400 mb-1">
+        {description}
+      </p>
+      <div className="inline-flex w-full justify-between">
+        {visitUrl && (
+          <a target="_blank" href={visitUrl}>
+            <div className="text-xs text-blue-400 hover:underline">
+              Click here to visit
+            </div>
+          </a>
+        )}
+        {githubUrl && (
+          <a target="_blank" href={githubUrl}>
+            <div className="text-xs text-fuchsia-600 hover:underline">
+              Learn more
+            </div>
+          </a>
+        )}
+      </div>
       <div className="inline-flex mt-5 gap-1 flex-wrap">
         {tags?.map((e) => (
           <Badge
@@ -106,43 +133,10 @@ export const ProjectsSection = ({ className }: ProjectsSectionProps) => {
       >
         Projects
       </h1>
-      <div className="grid [@media(min-width:510px)]:grid-cols-2 justify-items-center grid-cols-1 gap-1 row-start-auto">
-        <Project
-          name="Quonet - Post Forum Website"
-          assetsDir="/project/quonet"
-          tags={[
-            "Go",
-            "Fiber v2",
-            "GORM",
-            "Next.js",
-            "Typescript",
-            "Supabase",
-            "Redis",
-            "PostgreSQL",
-            "AWS",
-            "GitHub Actions",
-            "Docker",
-          ]}
-        >
-          <p className="whitespace-pre-line text-sm text-neutral-400 mb-1">
-            A full-stack forum application enabling users to create, read, like,
-            and delete posts, customize their profiles, and view randomized
-            feeds, with built-in moderation tools and a comprehensive admin
-            dashboard.
-          </p>
-          <div className="inline-flex w-full justify-between">
-            <a target="_blank" href="https://www.quonet.dev">
-              <div className="text-xs text-blue-400 hover:underline">
-                Click here to visit
-              </div>
-            </a>
-            <a target="_blank" href="https://github.com/mxilia/Quonet-backend">
-              <div className="text-xs text-fuchsia-800 hover:underline">
-                Learn more
-              </div>
-            </a>
-          </div>
-        </Project>
+      <div className="grid [@media(min-width:510px)]:grid-cols-2 justify-items-center grid-cols-1 gap-2 row-start-auto">
+        {PROJECTS.map((e) => (
+          <Project key={e.name} {...e} />
+        ))}
       </div>
     </div>
   );

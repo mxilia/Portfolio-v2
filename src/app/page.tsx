@@ -1,8 +1,8 @@
-import { ExperienceSection } from "./_components/sections/experience-section";
-import { IconsSection } from "./_components/sections/icons-section";
-import { ProfileSection } from "./_components/sections/about-section";
-import { ProjectsSection } from "./_components/sections/projects-section";
-import { ContactSection } from "./_components/sections/contact-section";
+import { ExperienceSection } from "../features/home/components/sections/experience-section";
+import { IconsSection } from "../features/home/components/sections/icons-section";
+import { ProfileSection } from "../features/home/components/sections/about-section";
+import { ProjectsSection } from "../features/home/components/sections/project-section";
+import { ContactSection } from "../features/home/components/sections/contact-section";
 
 const Home = () => {
   return (
